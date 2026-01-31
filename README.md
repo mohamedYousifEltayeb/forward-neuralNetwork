@@ -1,7 +1,3 @@
-Below is a **clean, copy-paste ready `README.md`** formatted exactly how GitHub expects it.
-
----
-
 # 🧠 Neural Network From Scratch (JavaScript)
 
 A simple **feedforward neural network implemented from scratch in pure JavaScript**, without any external libraries.
