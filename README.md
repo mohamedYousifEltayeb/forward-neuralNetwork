@@ -1,123 +1,159 @@
-🧠 Simple Neural Network from Scratch (JavaScript)
+Below is a **clean, copy-paste ready `README.md`** formatted exactly how GitHub expects it.
 
-This project is a minimal neural network implementation written in pure JavaScript, without any external libraries.
-It demonstrates the core building blocks of neural networks:
+---
 
-Neurons
+# 🧠 Neural Network From Scratch (JavaScript)
 
-Layers
+A simple **feedforward neural network implemented from scratch in pure JavaScript**, without any external libraries.
+This project is designed for **learning and experimentation**, showing how neural networks work internally.
 
-Activation functions
+---
 
-Feedforward propagation
+## ✨ Features
 
-The goal is educational clarity, not performance or training.
+* Custom implementation of:
 
-🚀 Features
+  * Neurons
+  * Layers
+  * Neural Network
+* Random weight & bias initialization
+* Multiple activation functions:
 
-Custom Neuron, Layer, and NeuralNetwork classes
+  * Sigmoid
+  * ReLU
+  * Tanh
+  * GELU
+* Configurable network architecture
+* Feedforward inference
 
-Random weight and bias initialization
+---
 
-Multiple activation functions:
+## 📦 Project Structure
 
-Sigmoid
-
-ReLU
-
-Tanh
-
-GELU
-
-Configurable network architecture
-
-Simple feedforward inference
-
-📂 Project Structure
+```
 .
-├── neuralNetwork.js   # Main implementation
-└── README.md          # Documentation
-🧩 Code Overview
-Neuron
+├── neuralNetwork.js
+└── README.md
+```
+
+---
+
+## 🧠 How It Works
+
+### 1. Neuron
 
 Each neuron:
 
-Stores its own weights and bias
+* Holds its own weights and bias
+* Computes a weighted sum of inputs
+* Applies an activation function
 
-Computes a weighted sum of inputs
+Supported activations:
 
-Applies an activation function
+* `sigmoid`
+* `relu`
+* `tanh`
+* `gelu`
 
-activate(inputs, f_x)
-Layer
+> ⚠️ **Softmax is intentionally excluded per neuron** and should be applied at the layer level.
+
+---
+
+### 2. Layer
 
 A layer:
 
-Contains multiple neurons
+* Contains multiple neurons
+* Applies the same activation function to all neurons
+* Produces an output array
 
-Applies the same activation function to all neurons
+---
 
-Produces an output vector
+### 3. Neural Network
 
-feedForward(inputs)
-NeuralNetwork
+The network:
 
-The neural network:
+* Is built from a layer configuration
+* Passes outputs from one layer to the next
+* Produces the final output using feedforward propagation
 
-Is composed of multiple layers
+---
 
-Passes outputs from one layer to the next
+## ⚙️ Example Usage
 
-Produces a final output
+### Define Network Architecture
 
-feedForward(inputs)
-⚙️ Supported Activation Functions
-Name	Description
-sigmoid	Smooth output between 0 and 1
-relu	Zero for negative values
-tanh	Output between -1 and 1
-gelu	Gaussian Error Linear Unit
-softmax	❌ Not supported per neuron
-
-⚠️ Note: softmax should be applied at the layer level, not per neuron.
-
-🛠 Example Usage
-Network Configuration
+```js
 const layersConfig = [
     { numOfNeurons: 3, f_x: 'sigmoid' },
     { numOfNeurons: 2, f_x: 'sigmoid' },
     { numOfNeurons: 1, f_x: 'sigmoid' }
 ];
-Create the Network
+```
+
+### Create the Network
+
+```js
 const neuralNetwork = new NeuralNetwork(layersConfig);
-Feed Input
+```
+
+### Run Feedforward
+
+```js
 const input = [230, 12, 23, 56];
 const output = neuralNetwork.feedForward(input);
 
-
 console.log('Network Output:', output);
-📌 Important Notes
+```
 
-This implementation does NOT include training or backpropagation
+---
 
-Weights are initialized randomly
+## 🧪 Output
 
-Intended for learning and experimentation
+The output is an array containing the final neuron values after passing through all layers.
 
-Not suitable for production ML tasks
+Example:
 
-🧠 Future Improvements
+```txt
+Network Output: [0.7421]
+```
 
-Add backpropagation and gradient descent
+*(Values vary due to random initialization)*
 
-Add softmax layer support
+---
 
-Support variable input sizes correctly
+## ⚠️ Limitations
 
-Add loss functions (MSE, Cross-Entropy)
+* ❌ No backpropagation
+* ❌ No training or learning
+* ❌ No loss functions
+* ❌ Random weights only
 
-Visualization of network structure
+This is **not meant for production use**.
 
-📜 License
+---
 
-This project is open-source and free to use for learning and experimentation.
+## 🚀 Possible Improvements
+
+* Add backpropagation & gradient descent
+* Add softmax layer support
+* Add loss functions (MSE, Cross-Entropy)
+* Support dynamic input sizes
+* Convert to TypeScript
+* Use for game AI / simulations
+
+---
+
+## 📜 License
+
+MIT License — free to use, modify, and learn from.
+
+---
+
+If you want, I can:
+
+* Add **training**
+* Fix **input-size bugs**
+* Turn this into a **game AI brain**
+* Optimize it for **performance**
+* Visualize the network structure
